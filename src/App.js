@@ -1,25 +1,34 @@
-import logo from './logo.svg';
+import React, { createElement, useState } from 'react';
 import './App.css';
 
+
 function App() {
+
+  const [task, setTask] = useState(['']);
+  const [agregar, setAgregar] = useState("");
+
+  console.log(task,agregar);
+
+
+ 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <form>
+
+    <div className='App'>
+      <h1>Task Basic</h1>
+    
+      <h3>Enter a Task</h3>
+      <input type='text' placeholder='write a task' value={agregar} onChange={(e) =>setAgregar(e.target.value) }></input>
+      <button  className='butonx' type='button' onClick={() => setTask([...task , agregar])}>ADD TASK</button>
+      
+       <textarea value={task} ></textarea>
+     
+     
+
     </div>
-  );
+    </form>
+  )
+  
 }
 
 export default App;
